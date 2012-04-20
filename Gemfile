@@ -9,6 +9,8 @@ gem 'railties', :require => 'rails'
 
 gem 'mongoid', :git => 'git@github.com:mongoid/mongoid.git'
 
+gem 'focused_controller', :git => 'git://github.com/jonleighton/focused_controller.git'
+
 
 
 # Gems used only for assets and not required
@@ -25,17 +27,10 @@ end
 
 gem 'jquery-rails'
 
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+group :development, :test do
+  gem 'rspec-rails'
+end
 
-# To use Jbuilder templates for JSON
-# gem 'jbuilder'
-
-# Use unicorn as the app server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug19', :require => 'ruby-debug'
+group :test do
+  gem 'mongoid-rspec', :git => 'git://github.com/kfaustino/mongoid-rspec.git', :branch => 'mongoid-3.0'
+end
