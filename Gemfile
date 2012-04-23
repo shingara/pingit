@@ -11,8 +11,6 @@ gem 'mongoid', :git => 'git@github.com:mongoid/mongoid.git'
 
 gem 'focused_controller', :git => 'git://github.com/jonleighton/focused_controller.git'
 
-
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -26,11 +24,14 @@ group :assets do
 end
 
 gem 'jquery-rails'
+gem 'slim-rails'
 
 group :development, :test do
+  gem 'quiet_assets', :git => 'git@github.com:evrone/quiet_assets.git'
   gem 'rspec-rails'
 end
 
 group :test do
   gem 'mongoid-rspec', :git => 'git://github.com/kfaustino/mongoid-rspec.git', :branch => 'mongoid-3.0'
+  gem 'capybara'
 end
