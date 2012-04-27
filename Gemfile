@@ -16,6 +16,7 @@ gem 'focused_controller', :git => 'git://github.com/jonleighton/focused_controll
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
+  gem "twitter-bootstrap-rails"
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
   # gem 'therubyracer', :platform => :ruby
@@ -25,6 +26,7 @@ end
 
 gem 'jquery-rails'
 gem 'slim-rails'
+gem 'simple_form'
 
 group :development, :test do
   gem 'quiet_assets', :git => 'git@github.com:evrone/quiet_assets.git'
