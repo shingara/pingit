@@ -11,6 +11,10 @@ gem 'mongoid', :git => 'git@github.com:mongoid/mongoid.git'
 
 gem 'focused_controller', :git => 'git://github.com/jonleighton/focused_controller.git'
 
+gem 'rufus-scheduler'
+gem 'sidekiq'
+gem 'sinatra'
+
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -19,7 +23,7 @@ group :assets do
   gem "twitter-bootstrap-rails"
 
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platform => :ruby
+  gem 'therubyracer', :platform => :ruby
 
   gem 'uglifier', '>= 1.0.3'
 end
