@@ -19,7 +19,7 @@ end
 
 scheduler = Rufus::Scheduler.start_new
 
-scheduler.every '5s' do
+scheduler.every '1m' do
   PingUrl.perform_async
 end
 

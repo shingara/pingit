@@ -1,6 +1,9 @@
 class PingUrl
   include Sidekiq::Worker
 
+  # Check all url to ping and generate a
+  # queue to each ping
+  #
   def perform
     Url.only(:id).all.each do |url|
       Ping.perform_async(url.id)
