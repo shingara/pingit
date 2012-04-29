@@ -55,6 +55,23 @@ describe UrlsController do
       end
     end
 
+  end
+
+  describe UrlsController::Show do
+    let(:url) { Url.new }
+    let(:controller) {  UrlsController::Show.new }
+    describe '#url' do
+      before do
+        Url.should_receive(:find).with(url.id.to_s).and_return { url }
+        controller.params = { id: url.id.to_s }
+      end
+      it 'return an Url model' do
+        controller.url.should be_a(UrlDecorator)
+      end
+      it 'return url with id pass in args' do
+        controller.url.should eq(url)
+      end
+    end
 
   end
 end

@@ -3,7 +3,7 @@ module UrlsController
 
   class Index < ApplicationController
     def urls
-      Url.all
+      UrlDecorator.decorate(Url.all)
     end
     helper_method :urls
   end
@@ -28,5 +28,12 @@ module UrlsController
         render :new
       end
     end
+  end
+
+  class Show < ApplicationController
+    def url
+      UrlDecorator.decorate(Url.find(params[:id]))
+    end
+    helper_method :url
   end
 end

@@ -1,0 +1,24 @@
+h1= t('.url', :link => url.link)
+
+h2= t('.overview')
+
+.row-fluid
+  .span4
+    h3= t('.uptime')
+    h4= url.uptime
+
+  .span4
+    h3= t('.downtime')
+    h4= url.downtime
+
+.row-fluid
+  table class="table table-striped"
+    thead
+      tr
+        th= t('.date')
+        th= t('.status')
+    tbody
+      - url.ping_statuses.each do |ping_status|
+        tr
+          td= ping_status.date
+          td= ping_status.status

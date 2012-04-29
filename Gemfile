@@ -7,7 +7,7 @@ gem 'actionpack', :require => 'action_pack'
 gem 'actionmailer', :require => 'action_mailer'
 gem 'railties', :require => 'rails'
 
-gem 'mongoid', :git => 'git@github.com:mongoid/mongoid.git'
+gem 'mongoid', :git => 'git://github.com/mongoid/mongoid.git'
 
 gem 'focused_controller', :git => 'git://github.com/jonleighton/focused_controller.git'
 
@@ -15,6 +15,7 @@ gem 'rufus-scheduler'
 gem 'sidekiq'
 gem 'sinatra'
 gem 'faraday'
+gem 'draper'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -34,7 +35,7 @@ gem 'slim-rails'
 gem 'simple_form'
 
 group :development, :test do
-  gem 'quiet_assets', :git => 'git@github.com:evrone/quiet_assets.git'
+  gem 'quiet_assets', :git => 'git://github.com/evrone/quiet_assets.git'
   gem 'rspec-rails'
 end
 
