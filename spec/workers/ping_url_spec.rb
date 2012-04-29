@@ -26,3 +26,34 @@ describe PingUrl do
   end
 
 end
+
+describe Ping do
+
+  let(:ping) { Ping.new }
+  let(:url) { Url.create(:link => 'http://example.org') }
+
+  describe '.perform' do
+    let(:perform) { ping.perform(url.id) }
+    context 'with a 200 request' do
+      before do
+        ping.stub(:connection).and_return{
+          Faraday.new do |builder|
+            builder.adapter :test, Faraday::Adapter::Test::Stubs.new do |stub|
+              stub.get('/') { [200, {}, 'egg'] }
+            end
+          end
+        }
+      end
+      it 'should create a ping_status document' do
+        expect {
+          perform
+        }.to change(url.ping_statuses, :size).by(1)
+      end
+      it 'should create a ping_status with status 200' do
+        ping_status = perform
+        ping_status.status.should == 200
+      end
+    end
+  end
+
+end

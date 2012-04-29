@@ -14,6 +14,7 @@ gem 'focused_controller', :git => 'git://github.com/jonleighton/focused_controll
 gem 'rufus-scheduler'
 gem 'sidekiq'
 gem 'sinatra'
+gem 'faraday'
 
 # Gems used only for assets and not required
 # in production environments by default.
