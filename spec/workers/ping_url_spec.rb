@@ -54,6 +54,32 @@ describe Ping do
         ping_status.status.should == 200
       end
     end
+
+    context "with a SocketError raise" do
+      let(:perform) { ping.perform(url.id) }
+      before do
+        ping.stub(:connection).and_return{
+          Faraday.new do |builder|
+            builder.adapter :test, Faraday::Adapter::Test::Stubs.new do |stub|
+              stub.get('/') { raise SocketError.new('getaddrinfo: nodename nor servname provided, or not known') }
+            end
+          end
+        }
+      end
+      it 'should create a new ping_status' do
+        expect {
+          perform
+        }.to change(url.ping_statuses, :size).by(1)
+      end
+
+      it 'should create ping_status with a 404 status' do
+        perform.status.should == 404
+      end
+      it 'should create ping_status with an unknown_host true' do
+        perform.unknown_host.should be_true
+      end
+
+    end
   end
 
 end

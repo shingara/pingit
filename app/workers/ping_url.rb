@@ -20,6 +20,11 @@ class Ping
     url.ping_statuses.create(
       :status => connection.get(request_uri).status
     )
+  rescue SocketError
+    url.ping_statuses.create(
+      :status => 404,
+      :unknown_host => true
+    )
   end
 
   # Url object defing by @url_id
