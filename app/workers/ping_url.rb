@@ -20,7 +20,7 @@ class Ping
     url.ping_statuses.create(
       :status => connection.get(request_uri).status
     )
-  rescue SocketError
+  rescue SocketError, Faraday::Error::ConnectionFailed
     url.ping_statuses.create(
       :status => 404,
       :unknown_host => true

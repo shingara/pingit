@@ -228,5 +228,6 @@ DEPENDENCIES
   sinatra
   slim-rails
   therubyracer
+  therubyrhino
   twitter-bootstrap-rails
   uglifier (>= 1.0.3)

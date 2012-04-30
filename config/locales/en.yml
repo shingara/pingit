@@ -7,3 +7,10 @@ en:
       add_url: Add url
     new:
       add_link: Add link to check
+    show:
+      url: 'URL : %{link}'
+      overview: 'overview'
+      uptime: 'uptime'
+      downtime: 'downtime'
+      date: 'date'
+      status: 'status'
