@@ -3,6 +3,7 @@ class PingStatus
   include Mongoid::Timestamps
 
   field :status, :type => Integer
+  field :response_time, :type => Float
   field :unknown_host, :type => Boolean, :default => false
 
   belongs_to :url

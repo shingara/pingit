@@ -18,13 +18,23 @@ class Ping
   def perform(url_id)
     @url_id = url_id
     url.ping_statuses.create(
-      :status => connection.get(request_uri).status
+      :status => status,
+      :response_time => response_time
     )
   rescue SocketError, Faraday::Error::ConnectionFailed
     url.ping_statuses.create(
       :status => 404,
       :unknown_host => true
     )
+  end
+  def status; get ; @status ; end
+  def response_time; get ; @response_time ; end
+
+  def get
+    return @response_time if @response_time
+    t = Time.now
+    @status = connection.get(request_uri).status
+    @response_time = Time.now - t
   end
 
   # Url object defing by @url_id

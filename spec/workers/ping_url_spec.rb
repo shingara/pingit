@@ -53,6 +53,9 @@ describe Ping do
         ping_status = perform
         ping_status.status.should == 200
       end
+      it 'should create a ping_status with response_time' do
+        perform.response_time.should > 0
+      end
     end
 
     context "with a SocketError raise" do

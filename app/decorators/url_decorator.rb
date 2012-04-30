@@ -19,4 +19,7 @@ class UrlDecorator < ApplicationDecorator
     PingStatusDecorator.decorate url.ping_statuses.desc(:updated_at)
   end
 
+  def to_param
+    url.id
+  end
 end

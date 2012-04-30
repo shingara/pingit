@@ -5,6 +5,7 @@ describe UrlOverviewRole do
 
   before do
     url.extend(UrlOverviewRole)
+    url.stub(:ping_status_count).and_return(1)
   end
 
   describe '#downtime' do
