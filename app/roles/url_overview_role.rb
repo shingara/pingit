@@ -25,6 +25,6 @@ module UrlOverviewRole
   # The time of downtime
   #
   def downtime
-
+    ping_status_failed_count
   end
 end
