@@ -40,7 +40,7 @@ class Ping
   def uri
     @uri ||= URI(url.link)
   end
-  delegate :request_uri, :to => :uri
+  delegate :request_uri, { :to => :uri }
 
   # Base url of link request
   #
