@@ -3,7 +3,7 @@ class Url
 
   field :link, :type => String
 
-  has_many :ping_statuses
+  has_many :ping_statuses, :dependent => :destroy
 
   validates_presence_of :link
   validates_format_of :link, :with => URI::regexp(%w(http https))

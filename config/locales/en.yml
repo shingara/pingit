@@ -14,3 +14,8 @@ en:
       downtime: 'downtime'
       date: 'date'
       status: 'status'
+    flash:
+      create:
+        success: 'You create a new url on %{link}'
+      destroy:
+        success: 'You delete the url'

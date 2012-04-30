@@ -30,7 +30,14 @@ html lang="en"
               /* li= link_to "Link 2", "/path2" */
               /* li= link_to "Link 3", "/path3" */
 
+
     .container-fluid
+
+      - unless flash.empty?
+        - flash.each do |key, value|
+          div class="alert alert-#{key}"
+            a class="close" data-dismiss="alert" href="#" ×
+            = value
 
       /* .row-fluid */
       /*   .span3 */
@@ -42,6 +49,7 @@ html lang="en"
       /*         li= link_to "Link 3", "/path3" */
       /*   .span9 */
       /*     = yield */
+
       = yield
 
       footer

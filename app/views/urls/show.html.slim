@@ -1,4 +1,7 @@
-h1= t('.url', :link => url.url.link)
+h1
+  = t('.url', :link => url.url.link)
+  = link_to url_url(url), :method => :delete do
+    i class="icon-trash"
 
 h2= t('.overview')
 
