@@ -38,6 +38,8 @@ gem 'simple_form'
 group :development, :test do
   gem 'quiet_assets', :git => 'git://github.com/evrone/quiet_assets.git'
   gem 'rspec-rails'
+  gem 'guard'
+  gem 'guard-rspec'
 end
 
 group :test do
