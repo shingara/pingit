@@ -12,7 +12,7 @@ class UrlDecorator < ApplicationDecorator
   end
 
   def link
-    h.link_to url.link, h.urls_url(url)
+    h.link_to url.link, h.url_url(url)
   end
 
   def ping_statuses
