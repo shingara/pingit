@@ -14,14 +14,20 @@ h2= t('.overview')
     h3= t('.downtime')
     h4= url.downtime
 
+  .span4
+    h3= t('.avg_response_time')
+    h4= url.avg_response_time
+
 .row-fluid
   table class="table table-striped"
     thead
       tr
         th= t('.date')
         th= t('.status')
+        th= t('.response_time')
     tbody
       - url.ping_statuses.each do |ping_status|
         tr
           td= ping_status.date
           td= ping_status.status
+          td= ping_status.response_time

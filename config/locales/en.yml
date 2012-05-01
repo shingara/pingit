@@ -12,8 +12,10 @@ en:
       overview: 'overview'
       uptime: 'uptime'
       downtime: 'downtime'
-      date: 'date'
-      status: 'status'
+      avg_response_time: 'Avg response time'
+      date: 'Date'
+      status: 'Status'
+      response_time: 'Response time'
     flash:
       create:
         success: 'You create a new url on %{link}'

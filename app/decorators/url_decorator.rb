@@ -22,4 +22,9 @@ class UrlDecorator < ApplicationDecorator
   def to_param
     url.id
   end
+
+  def avg_response_time
+    url.extend(UrlOverviewRole)
+    h.number_to_human(url.avg_response_time)
+  end
 end

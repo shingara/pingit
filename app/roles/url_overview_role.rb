@@ -7,7 +7,7 @@ module UrlOverviewRole
 
   # Number of ping with success
   def ping_status_success_count
-    @ping_status_success_count ||= self.ping_statuses.where(:status => 200).count
+    @ping_status_success_count ||= ping_status_success.count
   end
 
   # Number of failed ping
@@ -26,5 +26,15 @@ module UrlOverviewRole
   #
   def downtime
     ping_status_failed_count
+  end
+
+  def avg_response_time
+    ping_status_success.sum(:response_time) / ping_status_success_count
+  end
+
+  private
+
+  def ping_status_success
+    self.ping_statuses.where(:status => 200)
   end
 end
