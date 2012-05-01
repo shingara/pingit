@@ -29,7 +29,11 @@ module UrlOverviewRole
   end
 
   def avg_response_time
-    ping_status_success.sum(:response_time) / ping_status_success_count
+    if ping_status_success.sum(:response_time)
+      ping_status_success.sum(:response_time) / ping_status_success_count
+    else
+      0
+    end
   end
 
   private
