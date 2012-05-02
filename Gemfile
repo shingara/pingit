@@ -11,7 +11,6 @@ gem 'mongoid', :git => 'git://github.com/mongoid/mongoid.git'
 
 gem 'focused_controller', :git => 'git://github.com/jonleighton/focused_controller.git'
 
-gem 'rufus-scheduler'
 gem 'sidekiq'
 gem 'sinatra'
 gem 'faraday'
@@ -45,4 +44,12 @@ end
 group :test do
   gem 'mongoid-rspec', :git => 'git://github.com/kfaustino/mongoid-rspec.git', :branch => 'mongoid-3.0'
   gem 'capybara'
+end
+
+## Deployment
+gem 'unicorn'
+
+group :scheduler do
+  gem 'dante'
+  gem 'rufus-scheduler'
 end

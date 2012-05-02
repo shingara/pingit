@@ -1,7 +1,7 @@
 :verbose: false
 :concurrency:  25
 :development:
-  :redis_url: 'redis://localhost:6379'
+  :redis_url: <%= ENV['REDIS_URL'] %>
   :namespace: 'resque'
 :production:
   :redis_url: <%= ENV['REDISTOGO_URL'] %>

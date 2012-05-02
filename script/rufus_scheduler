@@ -2,25 +2,31 @@
 
 $:<< File.expand_path('../../app/workers',  __FILE__)
 
+
 require 'rufus/scheduler'
 require 'sidekiq'
 require 'ping_url'
 require 'yaml'
 require 'erb'
+require 'bundler'
+Bundler.require(:scheduler)
+require 'dante'
 
-# Configure sidekiq
-Sidekiq.configure_server do |config|
-  config.redis = Yaml.load(
-    ERB.new(
-      File.read(File.join(File.dirname(__FILE__), '../config/sidekiq_config.yml'))
-    ).result
-  )[ENV[RACK_ENV]]
+Dante.run('scheduler') do |opts|
+  # Configure sidekiq
+  Sidekiq.configure_server do |config|
+    config.redis = Yaml.load(
+      ERB.new(
+        File.read(File.join(File.dirname(__FILE__), '../config/sidekiq_config.yml'))
+      ).result
+    )[ENV[RACK_ENV]]
+  end
+
+  scheduler = Rufus::Scheduler.start_new
+
+  scheduler.every '1m' do
+    PingUrl.perform_async
+  end
+
+  scheduler.join
 end
-
-scheduler = Rufus::Scheduler.start_new
-
-scheduler.every '1m' do
-  PingUrl.perform_async
-end
-
-scheduler.join
