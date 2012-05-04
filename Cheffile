@@ -1,0 +1,40 @@
+#!/usr/bin/env ruby
+#^syntax detection
+
+site 'http://community.opscode.com/api/v1'
+
+# cookbook 'chef-client'
+
+# cookbook 'apache2', '>= 1.0.0'
+
+# cookbook 'rvm',
+#   :git => 'https://github.com/fnichol/chef-rvm'
+
+# cookbook 'postgresql',
+#   :git => 'https://github.com/findsyou/cookbooks',
+#   :ref => 'postgresql-improvements'
+
+cookbook 'mongodb',
+  :git => 'git://github.com/shingara/mongodb-chef-recipe.git'
+
+cookbook 'redis',
+  :ref => 'qa',
+  :git => 'git://github.com/cookbooks/ss-chef-redis.git'
+
+cookbook 'nginx',
+  :git => 'git://github.com/cookbooks/oc-nginx.git'
+
+cookbook 'monit',
+  :git => 'git://github.com/phlipper/chef-monit.git'
+
+# cookbook 'rbenv',
+#   :git => 'git://github.com/RiotGames/rbenv-cookbook.git'
+
+cookbook 'ruby_build',
+  :git => 'git://github.com/fnichol/chef-ruby_build.git'
+
+cookbook 'rbenv',
+  :git => 'git://github.com/fnichol/chef-rbenv.git'
+
+cookbook 'pingit',
+  :git => 'git://github.com/shingara/pingit-chef-recipe.git'

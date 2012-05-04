@@ -1,0 +1,68 @@
+SITE
+  remote: http://community.opscode.com/api/v1
+  specs:
+    bluepill (1.0.4)
+    build-essential (1.0.0)
+    runit (0.15.0)
+
+GIT
+  remote: git://github.com/cookbooks/oc-nginx.git
+  ref: master
+  sha: 008e647f655349566c774eff5bc943f1b4c302b4
+  specs:
+    nginx (0.100.0)
+      bluepill (>= 0.0.0)
+      build-essential (>= 0.0.0)
+      runit (>= 0.0.0)
+
+GIT
+  remote: git://github.com/cookbooks/ss-chef-redis.git
+  ref: qa
+  sha: 3bc3f8355833ea469e6a4d29f1a918419e2a09fa
+  specs:
+    redis (0.0.3)
+
+GIT
+  remote: git://github.com/fnichol/chef-rbenv.git
+  ref: master
+  sha: 3717195269328d3a9629ee80185f1200906c1e41
+  specs:
+    rbenv (0.6.5)
+
+GIT
+  remote: git://github.com/fnichol/chef-ruby_build.git
+  ref: master
+  sha: 42784a34d69a1225aa68062ed827f09dc9f61a6d
+  specs:
+    ruby_build (0.6.1)
+
+GIT
+  remote: git://github.com/phlipper/chef-monit.git
+  ref: master
+  sha: 9c0a3e457161f99c57a180aaf45358642dcf4cde
+  specs:
+    monit (0.1.0)
+
+GIT
+  remote: git://github.com/shingara/mongodb-chef-recipe.git
+  ref: master
+  sha: e12994d743155070b4abe36ffceeb1b5a9983fb9
+  specs:
+    mongodb (1.0.0)
+
+GIT
+  remote: git://github.com/shingara/pingit-chef-recipe.git
+  ref: master
+  sha: 6b4036a27d5b83ffd71377b4fdbbf5de63ac6154
+  specs:
+    pingit (0.1.0)
+
+DEPENDENCIES
+  mongodb (>= 0)
+  monit (>= 0)
+  nginx (>= 0)
+  pingit (>= 0)
+  rbenv (>= 0)
+  redis (>= 0)
+  ruby_build (>= 0)
+
