@@ -17,7 +17,7 @@ module UrlsController
 
   class Create < ApplicationController
     def url
-      Url.create(params['url'])
+      @url ||= Url.create(params['url'])
     end
     helper_method :url
 

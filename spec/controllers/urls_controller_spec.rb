@@ -52,6 +52,12 @@ describe UrlsController do
         it 'create an url with link' do
           controller.url.link.should == link
         end
+
+        it 'should not create several url model if call several times' do
+          lambda do
+            2.times { controller.url }
+          end.should change(Url, :count).by(1)
+        end
       end
     end
 
