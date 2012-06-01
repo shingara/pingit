@@ -58,11 +58,11 @@ Vagrant::Config.run do |config|
     chef.json = {
       :host => 'pingit.dev',
       :nginx => {
-        :version => '1.2.0'
+        :version => '1.3.0'
       },
       :redis => {
         :source => {
-          :version => '2.4.12'
+          :version => '2.4.14'
         }
       }
     }

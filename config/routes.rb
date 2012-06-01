@@ -1,10 +1,9 @@
 Pingit::Application.routes.draw do
-  focused_controller_routes do
-    resources :urls
-  end
+
+  resources :urls
 
   require 'sidekiq/web'
   mount Sidekiq::Web => '/sidekiq'
 
-  root :to => proc { |env| UrlsController::Index.call(env) }
+  root :to => "urls#index"
 end

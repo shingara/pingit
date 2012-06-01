@@ -16,7 +16,9 @@ class UrlDecorator < ApplicationDecorator
   end
 
   def ping_statuses
-    PingStatusDecorator.decorate url.ping_statuses.desc(:updated_at)
+    PingStatusDecorator.decorate(
+      url.ping_statuses.desc(:updated_at).page(h.params[:page])
+    )
   end
 
   def to_param

@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe UrlDecorator do
-  let(:url) { Url.new }
+  let(:url) { Fabricate(:url) }
   let(:decorator) { UrlDecorator.decorate(url) }
 
   describe 'uptime' do
