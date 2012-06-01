@@ -36,9 +36,8 @@ module UrlOverviewRole
     end
   end
 
-  private
-
   def ping_status_success
-    self.ping_statuses.where(:status => 200)
+    self.ping_statuses.where(:status.lte => 400)
   end
+
 end

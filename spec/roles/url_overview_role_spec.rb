@@ -13,4 +13,30 @@ describe UrlOverviewRole do
       url.downtime.should == 1
     end
   end
+
+  describe "#ping_status_success" do
+    [200, 302].each do |status|
+      it "#{status} is success" do
+        url = Fabricate(:url) do
+          ping_statuses(:count => 1) { |parent|
+            Fabricate(:ping_status, status: status, url: parent)
+          }
+        end
+        url.extend(UrlOverviewRole)
+        url.ping_status_success.should_not be_empty
+      end
+    end
+
+    [404, 500].each do |status|
+      it "#{status} is failure" do
+        url = Fabricate(:url) do
+          ping_statuses(:count => 1) { |parent|
+            Fabricate(:ping_status, status: status, url: parent)
+          }
+        end
+        url.extend(UrlOverviewRole)
+        url.ping_status_success.entries.should be_empty
+      end
+    end
+  end
 end
